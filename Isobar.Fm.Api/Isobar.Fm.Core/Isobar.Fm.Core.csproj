@@ -5,9 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Models\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\Isobar.Fm.Infrastructure\Isobar.Fm.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,18 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
+using Isobar.Fm.Core.Interfaces;
+using AutoMapper;
 namespace Isobar.Fm.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class BandsController : ControllerBase
     {
+        IBandsService _bandsService;
+        IMapper _mapper;
+
+        public BandsController(IBandsService bandsService, IMapper mapper)
+        {
+            _bandsService = bandsService;
+            _mapper = mapper;
+        }
+
         // GET api/bands
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<IEnumerable<Models.Band>> GetAsync()
         {
-            return new string[] { "value1", "value2" };
+            var result = await _bandsService.GetBands();
+            var mappedResult = _mapper.Map<IEnumerable<Models.Band>>(result);
+
+            return mappedResult;
         }
 
         // GET api/bands/5

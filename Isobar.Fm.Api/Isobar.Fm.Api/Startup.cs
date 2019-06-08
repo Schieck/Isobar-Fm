@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Isobar.Fm.Infrastructure.Interfaces;
 using Isobar.Fm.Infrastructure.Repositories;
+using Isobar.Fm.Core.Interfaces;
+using Isobar.Fm.Core.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +32,7 @@ namespace Isobar.Fm.Api
         public void ConfigureServices(IServiceCollection services)
         {
             // Services
+            services.AddScoped<IBandsService, BandsService>();
 
             // Repositories 
             services.AddHttpClient<IBandsApiDataAdapter, BandsApiDataAdapter>(options =>
