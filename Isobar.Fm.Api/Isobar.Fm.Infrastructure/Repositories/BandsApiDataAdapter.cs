@@ -5,9 +5,11 @@ using Microsoft.Extensions.Configuration;
 using System.Net.Http;
 using Isobar.Fm.Infrastructure.Models;
 using System.Threading.Tasks;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Isobar.Fm.Infrastructure.Repositories
 {
+    [ExcludeFromCodeCoverage]
     public class BandsApiDataAdapter : Interfaces.IBandsApiDataAdapter
     {
         private readonly HttpClient _httpClient;

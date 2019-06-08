@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Isobar.Fm.Core.Models
 {
+    [ExcludeFromCodeCoverage]
     public class Band
     {
         public string Id { get; set; }
