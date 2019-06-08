@@ -9,5 +9,8 @@ namespace Isobar.Fm.Infrastructure.Interfaces
     public interface IBandsApiDataAdapter
     {
         Task<IEnumerable<Band>> GetBandsAsync();
+        Task<Band> GetBandAsync(string bandId);
+        Task CreateBand(Band band);
+
     }
 }

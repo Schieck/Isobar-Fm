@@ -19,6 +19,20 @@ namespace Isobar.Fm.Core.Services
             _mapper = mapper;
         }
 
+        public async Task CreateBand(Band band)
+        {
+            Infrastructure.Models.Band mappedBand = _mapper.Map<Infrastructure.Models.Band>(band);
+
+            await _bandsApiDataAdapter.CreateBand(mappedBand);
+        }
+
+        public async Task<Band> GetBand(string bandId)
+        {
+            Band band = _mapper.Map<Band>(await _bandsApiDataAdapter.GetBandAsync(bandId));
+
+            return band;
+        }
+
         public async Task<IEnumerable<Band>> GetBands()
         {
             IEnumerable<Band> bands = _mapper.Map<IEnumerable<Band>>(await _bandsApiDataAdapter.GetBandsAsync());

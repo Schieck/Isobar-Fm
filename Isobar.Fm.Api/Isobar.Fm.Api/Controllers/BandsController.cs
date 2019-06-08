@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Isobar.Fm.Core.Interfaces;
 using AutoMapper;
 using System.Diagnostics.CodeAnalysis;
+
 namespace Isobar.Fm.Api.Controllers
 {
     [ExcludeFromCodeCoverage]
@@ -35,22 +36,34 @@ namespace Isobar.Fm.Api.Controllers
             return mappedResult;
         }
 
-        // GET api/bands/5
+        /// <summary>
+        /// Get the band it's id.
+        /// </summary>
+        /// <returns>Return a Band Object</returns>
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<Models.Band> Get(string id)
         {
-            return "value";
+            var result = await _bandsService.GetBand(id);
+            var mappedResult = _mapper.Map<Models.Band>(result);
+
+            return mappedResult;
         }
 
-        // POST api/bands
+        /// <summary>
+        /// Method to create a new full band
+        /// </summary>
+        /// <param name="band">Band object</param>
+        /// <returns>The created band object</returns>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task Post([FromBody] Models.Band band)
         {
+            Core.Models.Band mappedBand = _mapper.Map<Core.Models.Band>(band);
+            await _bandsService.CreateBand(mappedBand);
         }
 
         // PUT api/bands/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(string id, [FromBody]  Models.Band band)
         {
         }
 
