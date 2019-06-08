@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Isobar.Fm.Infrastructure.Interfaces;
+using Isobar.Fm.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +32,10 @@ namespace Isobar.Fm.Api
             // Services
 
             // Repositories 
+            services.AddHttpClient<IBandsApiDataAdapter, BandsApiDataAdapter>(options =>
+            {
+                options.BaseAddress = new Uri(Configuration.GetConnectionString("BandsApi"));
+            });
 
             // Health Check
             services.AddHealthChecks();
