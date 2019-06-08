@@ -34,7 +34,7 @@ namespace Isobar.Fm.Api
             // Repositories 
             services.AddHttpClient<IBandsApiDataAdapter, BandsApiDataAdapter>(options =>
             {
-                options.BaseAddress = new Uri(Configuration.GetConnectionString("BandsApi"))
+                options.BaseAddress = new Uri(Configuration.GetConnectionString("BandsApi"));
             });
 
             // Health Check
