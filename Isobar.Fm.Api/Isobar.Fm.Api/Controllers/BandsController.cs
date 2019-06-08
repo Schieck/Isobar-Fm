@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Isobar.Fm.Core.Interfaces;
 using AutoMapper;
+using System.Diagnostics.CodeAnalysis;
 namespace Isobar.Fm.Api.Controllers
 {
+    [ExcludeFromCodeCoverage]
     [Route("api/[controller]")]
     [ApiController]
     public class BandsController : ControllerBase
@@ -20,7 +22,10 @@ namespace Isobar.Fm.Api.Controllers
             _mapper = mapper;
         }
 
-        // GET api/bands
+        /// <summary>
+        /// Get all bands with it own Albuns and Tracks of Albuns.
+        /// </summary>
+        /// <returns>Return a complete Band Object</returns>
         [HttpGet]
         public async Task<IEnumerable<Models.Band>> GetAsync()
         {
