@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: microsoft/dotnet:2.1-sdk
+    steps:
+      - checkout
+      - run: find .
+      - run: dotnet build "./Isobar.Fm.Api/Isobar.Fm.Api.sln" -c Release -o /app
+
+  test:
+    docker:
+      - image: microsoft/dotnet:2.1-sdk
+    steps:
+      - checkout
+      - run: find .
+      - run: dotnet test "./Isobar.Fm.Api/Isobar.Fm.Tests.Units/Isobar.Fm.Tests.Units.csproj" -c Release -o /app
