@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Isobar.Fm.Infrastructure.Models
+namespace Isobar.Fm.Api.Models
 {
     public class Band
     {
