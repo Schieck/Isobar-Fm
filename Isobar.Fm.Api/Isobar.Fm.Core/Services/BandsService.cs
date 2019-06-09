@@ -26,6 +26,13 @@ namespace Isobar.Fm.Core.Services
             await _bandsApiDataAdapter.CreateBand(mappedBand);
         }
 
+        public async Task UpdateBand(string bandId, Band band)
+        {
+            Infrastructure.Models.Band mappedBand = _mapper.Map<Infrastructure.Models.Band>(band);
+
+            await _bandsApiDataAdapter.UpdateBand(bandId, mappedBand);
+        }
+
         public async Task<Band> GetBand(string bandId)
         {
             Band band = _mapper.Map<Band>(await _bandsApiDataAdapter.GetBandAsync(bandId));
@@ -35,9 +42,14 @@ namespace Isobar.Fm.Core.Services
 
         public async Task<IEnumerable<Band>> GetBands()
         {
-            IEnumerable<Band> bands = _mapper.Map<IEnumerable<Band>>(await _bandsApiDataAdapter.GetBandsAsync());
+            IEnumerable <Band> bands = _mapper.Map<IEnumerable<Band>>(await _bandsApiDataAdapter.GetBandsAsync());
 
-            return bands;            
+            return bands;
+        }
+
+        public async Task DeleteBand(string bandId)
+        {
+            await _bandsApiDataAdapter.DeleteBand(bandId);
         }
     }
 }

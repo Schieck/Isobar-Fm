@@ -8,9 +8,9 @@ namespace Isobar.Fm.Core.Interfaces
     public interface IBandsService
     {
         Task<IEnumerable<Models.Band>> GetBands();
-
         Task<Models.Band> GetBand(string bandId);
-
         Task CreateBand(Models.Band band);
+        Task UpdateBand(string bandId, Models.Band band);
+        Task DeleteBand(string bandId);
     }
 }

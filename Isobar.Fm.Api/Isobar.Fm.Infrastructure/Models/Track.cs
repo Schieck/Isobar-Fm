@@ -10,6 +10,6 @@ namespace Isobar.Fm.Infrastructure.Models
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public int Duration { get; set; }
+        public Int64 Duration { get; set; }
     }
 }

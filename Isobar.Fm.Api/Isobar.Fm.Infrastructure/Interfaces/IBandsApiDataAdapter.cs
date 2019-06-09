@@ -11,6 +11,7 @@ namespace Isobar.Fm.Infrastructure.Interfaces
         Task<IEnumerable<Band>> GetBandsAsync();
         Task<Band> GetBandAsync(string bandId);
         Task CreateBand(Band band);
-
+        Task UpdateBand(string bandId, Band band);
+        Task DeleteBand(string bandId);
     }
 }

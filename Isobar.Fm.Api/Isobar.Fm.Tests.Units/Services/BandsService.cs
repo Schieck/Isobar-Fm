@@ -17,11 +17,11 @@ namespace Isobar.Fm.Tests.Units.Services
         Mock<IBandsApiDataAdapter> _bandsApiDataAdapter;
 
         public BandsService()
-        {            
+        {
             _mapper = new Mock<IMapper>();
             _bandsApiDataAdapter = new Mock<IBandsApiDataAdapter>();
-            _sut = new Core.Services.BandsService(_bandsApiDataAdapter.Object,_mapper.Object);
-            
+            _sut = new Core.Services.BandsService(_bandsApiDataAdapter.Object, _mapper.Object);
+
         }
 
         [Fact]
@@ -130,6 +130,65 @@ namespace Isobar.Fm.Tests.Units.Services
 
             // Assert
             _mapper.Verify(x => x.Map<Infrastructure.Models.Band>(bandCore));
+        }
+
+        [Fact]
+        public void UpdateBand_WhenAlways_ShouldCallRepository()
+        {
+            // Arrange
+            string id = "akjsdh1u23917y189hj";
+
+            Core.Models.Band bandCore = new Core.Models.Band()
+            {
+                Id = id
+            };
+
+            Infrastructure.Models.Band bandInfra = new Infrastructure.Models.Band()
+            {
+                Id = id
+            };
+
+            _mapper.Setup(x => x.Map<Infrastructure.Models.Band>(bandCore)).Returns(bandInfra);
+            _bandsApiDataAdapter.Setup(x => x.UpdateBand(id, bandInfra));
+
+            // Act
+            _sut.UpdateBand(id, bandCore);
+
+            // Assert
+            _bandsApiDataAdapter.Verify(x => x.UpdateBand(id, bandInfra));
+        }
+
+        [Fact]
+        public void UpdateBand_WhenAlways_ShouldMapBand()
+        {
+            // Arrange
+            string id = "akjsdh1u23917y189hj";
+
+            Core.Models.Band bandCore = new Core.Models.Band()
+            {
+                Id = id
+            };
+
+            _mapper.Setup(x => x.Map<Infrastructure.Models.Band>(bandCore));
+
+            // Act
+            _sut.UpdateBand(id, bandCore);
+
+            // Assert
+            _mapper.Verify(x => x.Map<Infrastructure.Models.Band>(bandCore));
+        }
+
+        [Fact]
+        public void DeleteBand_WhenAlways_ShouldCallRepository()
+        {
+            // Arrange
+            var id = "asdkju19823189";
+
+            // Act
+            _sut.DeleteBand(id);
+
+            // Assert
+            _bandsApiDataAdapter.Verify(x => x.DeleteBand(id));
         }
     }
 }

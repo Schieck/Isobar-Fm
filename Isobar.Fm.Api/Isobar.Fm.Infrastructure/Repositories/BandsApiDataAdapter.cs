@@ -7,6 +7,8 @@ using Isobar.Fm.Infrastructure.Models;
 using System.Threading.Tasks;
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.Caching.Memory;
+using System.Web;
+using System.Linq;
 
 namespace Isobar.Fm.Infrastructure.Repositories
 {
@@ -23,14 +25,14 @@ namespace Isobar.Fm.Infrastructure.Repositories
         }
 
         public async Task<IEnumerable<Band>> GetBandsAsync()
-        {
+        {            
             var bandsCache = await _memoryCache.GetOrCreate<Task<IEnumerable<Models.Band>>>(
                 "Bands", async context =>
                 {
                     context.SetAbsoluteExpiration(TimeSpan.FromSeconds(30));
-                    context.SetPriority(CacheItemPriority.High);
+                    context.SetPriority(CacheItemPriority.High);                    
 
-                    using (HttpResponseMessage httpResponse = await _httpClient.GetAsync("full"))
+                    using (HttpResponseMessage httpResponse = await _httpClient.GetAsync($"full"))
                     {                        
                         List<Band> result = new List<Band>();
 
@@ -74,7 +76,23 @@ namespace Isobar.Fm.Infrastructure.Repositories
 
         public async Task CreateBand(Band band)
         {
-            await _httpClient.PostAsJsonAsync($"bands/", band);            
+            await _httpClient.PostAsJsonAsync($"bands/", band);
+            _memoryCache.Remove("Band");
+            _memoryCache.Remove("Bands");
+        }
+
+        public async Task UpdateBand(string bandId, Band band)
+        {
+            await _httpClient.PutAsJsonAsync($"bands/{bandId}", band);
+            _memoryCache.Remove("Band");
+            _memoryCache.Remove("Bands");
+        }
+
+        public async Task DeleteBand(string bandId)
+        {
+            await _httpClient.DeleteAsync($"bands/{bandId}");
+            _memoryCache.Remove("Band");
+            _memoryCache.Remove("Bands");
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Isobar.Fm.Api.Controllers
             var mappedResult = _mapper.Map<IEnumerable<Models.Band>>(result);
 
             return mappedResult;
-        }
+        }       
 
         /// <summary>
         /// Get the band it's id.
@@ -53,7 +53,7 @@ namespace Isobar.Fm.Api.Controllers
         /// Method to create a new full band
         /// </summary>
         /// <param name="band">Band object</param>
-        /// <returns>The created band object</returns>
+        /// <returns>Task with the created result</returns>
         [HttpPost]
         public async Task Post([FromBody] Models.Band band)
         {
@@ -61,16 +61,28 @@ namespace Isobar.Fm.Api.Controllers
             await _bandsService.CreateBand(mappedBand);
         }
 
-        // PUT api/bands/5
+        /// <summary>
+        /// Method to update a full band
+        /// </summary>
+        /// <param name="id">Band Id</param>
+        /// <param name="band">Band object</param>
+        /// <returns>Task with the updated result</returns>
         [HttpPut("{id}")]
-        public void Put(string id, [FromBody]  Models.Band band)
+        public async Task Put(string id, [FromBody]  Models.Band band)
         {
+            Core.Models.Band mappedBand = _mapper.Map<Core.Models.Band>(band);
+            await _bandsService.UpdateBand(id, mappedBand);
         }
 
-        // DELETE api/bands/5
+        /// <summary>
+        /// Method to delete a band by an Id
+        /// </summary>
+        /// <param name="id">Id of the band to be deleted</param>
+        /// <returns>A task with the deleted result</returns>
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(string id)
         {
+            await _bandsService.DeleteBand(id);
         }
     }
 }
