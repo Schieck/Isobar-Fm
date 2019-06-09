@@ -10,5 +10,5 @@ jobs:
       - run: find .
       - run: dotnet build "./Isobar.Fm.Api/Isobar.Fm.Api.sln" -c Release -o /app
       - run: dotnet test "./Isobar.Fm.Api/Isobar.Fm.Tests.Units/Isobar.Fm.Tests.Units.csproj" --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
-      - codecov/upload:
+      - codecov:
           file: "./Isobar.Fm.Api/Isobar.Fm.Tests.Units/coverage.opencover.xml"
