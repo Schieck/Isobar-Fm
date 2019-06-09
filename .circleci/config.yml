@@ -1,4 +1,6 @@
-version: 2
+version: 2.1
+orbs:
+  codecov: codecov/codecov@1.0.4
 jobs:
   build:
     docker:
@@ -7,4 +9,6 @@ jobs:
       - checkout
       - run: find .
       - run: dotnet build "./Isobar.Fm.Api/Isobar.Fm.Api.sln" -c Release -o /app
-      - run: dotnet test "./Isobar.Fm.Api/Isobar.Fm.Tests.Units/Isobar.Fm.Tests.Units.csproj" -c Release -o /app      
+      - run: dotnet test "./Isobar.Fm.Api/Isobar.Fm.Tests.Units/Isobar.Fm.Tests.Units.csproj" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+      - codecov/upload:
+          file: "./Isobar.Fm.Api/Isobar.Fm.Tests.Units/coverage.opencover.xml" 
