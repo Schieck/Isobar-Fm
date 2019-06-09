@@ -2,9 +2,9 @@
 <CoverageSession>
   <Summary numSequencePoints="7059" visitedSequencePoints="1688" numBranchPoints="3267" visitedBranchPoints="583" sequenceCoverage="23.91" branchCoverage="17.84" maxCyclomaticComplexity="2358" minCyclomaticComplexity="6" visitedClasses="104" numClasses="284" visitedMethods="417" numMethods="1555" />
   <Modules>
-    <Module hash="84EE752E-AC19-4D1C-BDF6-9856069DC370">
+    <Module hash="4808E3B4-DE38-44FF-8324-3075E5105CFC">
       <ModulePath>Isobar.Fm.Core.dll</ModulePath>
-      <ModuleTime>2019-06-09T12:17:36</ModuleTime>
+      <ModuleTime>2019-06-09T01:17:46</ModuleTime>
       <ModuleName>Isobar.Fm.Core</ModuleName>
       <Files>
         <File uid="1" fullPath="C:\Users\schieck\Documents\Isobar-Fm\Isobar.Fm.Api\Isobar.Fm.Core\Services\BandsService.cs" />
@@ -142,9 +142,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="15143CF1-86CF-4996-8C75-2401FB24EEC2">
+    <Module hash="AE52423F-B9D6-4472-AB5E-44A00578CB69">
       <ModulePath>Isobar.Fm.Infrastructure.dll</ModulePath>
-      <ModuleTime>2019-06-09T12:17:36</ModuleTime>
+      <ModuleTime>2019-06-09T01:17:46</ModuleTime>
       <ModuleName>Isobar.Fm.Infrastructure</ModuleName>
       <Files>
         <File uid="2" fullPath="C:\Users\schieck\Documents\Isobar-Fm\Isobar.Fm.Api\Isobar.Fm.Infrastructure\Repositories\BandsApiDataAdapter.cs" />
@@ -193,9 +193,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="8F370F83-49BF-4DBA-AB1A-87A2B8AF3B61">
+    <Module hash="5A1139C5-63FC-488B-9FAD-9F8B4F0D1774">
       <ModulePath>xunit.runner.reporters.netcoreapp10.dll</ModulePath>
-      <ModuleTime>2019-06-09T12:17:36</ModuleTime>
+      <ModuleTime>2019-06-09T01:17:46</ModuleTime>
       <ModuleName>xunit.runner.reporters.netcoreapp10</ModuleName>
       <Files>
         <File uid="3" fullPath="C:\Dev\xunit\xunit\src\xunit.runner.reporters\Utility\EnvironmentHelper.cs" />
@@ -3749,9 +3749,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="769CA2A8-7C7C-44F4-8E0C-98B88FF88934">
+    <Module hash="2F9FD37B-8257-480D-8B35-E5B18749119E">
       <ModulePath>xunit.runner.utility.netcoreapp10.dll</ModulePath>
-      <ModuleTime>2019-06-09T12:17:36</ModuleTime>
+      <ModuleTime>2019-06-09T01:17:46</ModuleTime>
       <ModuleName>xunit.runner.utility.netcoreapp10</ModuleName>
       <Files>
         <File uid="22" fullPath="C:\Dev\xunit\xunit\src\xunit.runner.utility\Extensions\DisposableExtensions.cs" />
@@ -19739,9 +19739,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="CD66AABF-5530-49E5-939F-97030BCE215A">
+    <Module hash="F22D506F-F37A-4013-9ED9-97B3A077A6E7">
       <ModulePath>xunit.runner.visualstudio.dotnetcore.testadapter.dll</ModulePath>
-      <ModuleTime>2019-06-09T12:17:36</ModuleTime>
+      <ModuleTime>2019-06-09T01:17:46</ModuleTime>
       <ModuleName>xunit.runner.visualstudio.dotnetcore.testadapter</ModuleName>
       <Files>
         <File uid="159" fullPath="C:\Dev\xunit\xunit\src\xunit.runner.visualstudio\Utility\ExceptionExtensions.cs" />

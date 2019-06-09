@@ -5,6 +5,7 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <UserSecretsId>d238cab8-ab75-428d-940a-75243872a291</UserSecretsId>
+    <StartupObject>Isobar.Fm.Api.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
