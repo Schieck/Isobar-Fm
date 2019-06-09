@@ -13,8 +13,7 @@ namespace Isobar.Fm.Api.Models
         public string Image { get; set; }
         public string Genre { get; set; }
         public string Biography { get; set; }
-        public int NumPlays { get; set; }
-        public int MyProperty { get; set; }
+        public Int64 NumPlays { get; set; }
         public IEnumerable<string> Albums { get; set; }
         public List<IEnumerable<Album>> AlbumList { get; set; }
     }

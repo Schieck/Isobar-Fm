@@ -40,6 +40,9 @@ namespace Isobar.Fm.Api
                 options.BaseAddress = new Uri(Configuration.GetConnectionString("BandsApi"));
             });
 
+            //Memory Cache
+            services.AddMemoryCache();
+
             // Health Check
             services.AddHealthChecks();
 
