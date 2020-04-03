@@ -17,7 +17,7 @@ Isobar Fm Api is now running at: `http://localhost:5000` :seedling:
   - Very easy to test this api, just go to the listening path or to `/swagger` and it will create all the requests for you
   
 - Health Check
-  - To ferify if the api is healty, just go to `/api/HealthCheck`
+  - To verify if the api is healty, just go to `/api/HealthCheck`
   
 ## Architecture
 For this application do we have some layers:
